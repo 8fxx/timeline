@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags}}"> {{ message}}</div>
+    {% endfor %}
+    {% endif %}
+    <form method="POST" class="text-white m-0">
+      {% csrf_token %}
+      <div class="container-fluid bg-dark p-0">
+        <div class="row text-center">
+          <div class="col p-0">
+          </div>
+          <div class="col-6 text-center p-1">
+            <h1 class="text-white m-5">Login</h1>
+            {{form.as_p}}
+            <br>
+            <button type="submit" class="btn btn btn-dark">Login</button>
+          </div>
+          <div class="col p-0">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+{% endblock %}

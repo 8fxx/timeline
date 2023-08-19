@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{%  include 'partials/nav.html' %}
+
+   
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 50vh;">
+  <div class="row text-center">
+
+    <div class="col-md-4 mb-4 mt-3" >
+      <a href="{% url 'feed' %}" class="text-decoration-none">
+        <div class="card btn btn-secondary h-100">
+          <i class="fa-solid fa-timeline fa-2xl mt-4"></i>
+        <div class="card-body">
+          <h5 class="card-title">Feed</h5>
+          <p class="card-text">View Network Graph</p>
+        </div>
+      </div></a>
+    </div>
+
+     <div class="col-md-4 mb-4 mt-3">
+      <a href="{% url 'graph' %}" class="text-decoration-none">
+        <div class="card btn btn-secondary h-100">
+          <i class="fa-solid fa-diagram-project fa-2xl mt-4"></i>
+        <div class="card-body">
+          <h5 class="card-title">Graph</h5>
+          <p class="card-text">View Network Graph</p>
+        </div>
+      </div></a>
+    </div>
+
+    <div class="col-md-4 mb-4 mt-3">
+      <a href="{% url 'weather' %}" class="text-decoration-none">
+        <div class="card btn btn-secondary h-100">
+          <i class="fa-solid fa-cloud fa-2xl mt-4"></i>
+        <div class="card-body">
+          <h5 class="card-title">Weather</h5>
+          <p class="card-text">Weather Dashboard</p>
+        </div>
+      </div></a>
+    </div>
+
+    <div class="col-md-4 mb-4 mt-3">
+      <a href="{% url 'map' %}" class="text-decoration-none">
+        <div class="card btn btn-secondary h-100">
+          <i class="fa-regular fa-map fa-2xl m-4"></i>
+        <div class="card-body">
+          <h5 class="card-title">Interactive Map</h5>
+          <p class="card-text">Map Marking Dashboard</p>
+        </div>
+      </div></a>
+    </div>
+
+
+  </div>
+</div>
+
+
+  {% endblock %}

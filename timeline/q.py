@@ -1,0 +1,30 @@
+from django.db.models import Q
+searched =''
+lookup = (
+    Q(nodetitle__icontains=searched) |
+    Q(eventtype__icontains=searched) |
+    Q(createdby__username__icontains=searched) |
+    Q(showingraph__icontains=searched) |
+    Q(nodedescription__icontains=searched) |
+    Q(nodecolor__icontains=searched) |
+    Q(relatedevents__nodetitle__icontains=searched) |
+    Q(newstitle__icontains=searched) |
+    Q(newspublisher__icontains=searched) |
+    Q(newscategory__icontains=searched) |
+    Q(newslink__icontains=searched) |
+    Q(image__icontains=searched) |
+    Q(eventname__icontains=searched) |
+    Q(eventsponsor__icontains=searched) |
+    Q(eventdate__icontains=searched) |
+    Q(eventlocation__icontains=searched) |
+    Q(eventlatitude__icontains=searched) |
+    Q(eventlongitude__icontains=searched) |
+    Q(showinmap__icontains=searched) |
+    Q(infoname__icontains=searched) |
+    Q(infodescription__icontains=searched) |
+    Q(infosource__icontains=searched) |
+    Q(reportnumber__icontains=searched) |
+    Q(reporttitle__icontains=searched) |
+    Q(reportdate__icontains=searched) |
+    Q(reportdepartment__icontains=searched)
+)

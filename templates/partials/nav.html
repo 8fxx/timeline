@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    <div class="container d-flex justify-content-between justify-content-sm-around justify-content-md-around">
+      <a class="navbar-brand d-flex" href="/"><i class="fa-solid fa-house d-flex justify-content-start mx-2"></i> OSPY</a>
+
+      
+      
+      <div class="navbar-nav" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+          
+            {% if show_search_bar %}
+            {% include 'partials/search.html' %}
+            {% endif %}
+          </li>
+        </ul>
+      </div>
+    
+        <ul class="navbar-nav">
+          <li class="nav-item text-white">
+            {% if user %}
+          
+          <span id="todaysDate" class="m-2"></span>
+          <span id="liveTime" class="m-2"></span>
+          {% endif %}
+          <a href="{% url 'edituser' %}" class="btn btn-sm btn-secondary m-1"><i class="fa-regular fa-user"></i></a>
+          <a href="{% url 'logout' %}" class="btn btn-sm btn-secondary m-1"><i class="fa-solid fa-arrow-right-from-bracket"></i> 
+          </a>
+          </li>
+        </ul>
+      
+    </div>
+  </nav>
+
+
+
+
+
+
+  <script>
+    function updateLiveTimeAndDate() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const seconds = now.getSeconds().toString().padStart(2, '0');
+
+      const timeString = `${hours}:${minutes}:${seconds}`;
+      document.getElementById('liveTime').textContent = ` ${timeString}`;
+
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const dateString = now.toLocaleDateString(undefined, options);
+      document.getElementById('todaysDate').textContent = `${dateString}`;
+    }
+
+    updateLiveTimeAndDate(); // Initial call to set the time and date immediately
+    setInterval(updateLiveTimeAndDate, 1000); // Update the time and date every 1000 milliseconds (1 second)
+  </script>
+
+{% endblock %}

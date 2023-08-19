@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if form_errors %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert" style="
+z-index: 9999 !important;
+position: relative;">
+    <strong>Error(s) occurred:</strong>
+    <ul>
+        {% for field, error_list in form_errors.items %}
+            <p>Error in field </p>{{ field }}:
+                {% for error in error_list %}
+                    {{ error }}
+                {% endfor %}
+            </li>
+        {% endfor %}
+    </ul>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+
+
+{% if success %}
+<div id='autoDisappearDiv' class="alert alert-success alert-dismissible fade show auto-disappear" role="alert" style="
+z-index: 9999 !important;
+position: relative;
+">
+Succesfully Added
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+
+
+
+
+
+
+{% for object in object_list%}
+
+        <!-- <span class="btn btn-danger badge-pill" style="cursor: pointer"
+        hx-delete='{% url "deleteevent" id=object.id %}'
+        hx-target="#feed-list" hx-confirm="Are you sure?"
+          >x</span><br> -->
+   
+  {% endfor %}
+
+
+  <div class="container text-white text-center">
+
+    {% for event in object_list %}
+    <div class="row justify-content-evenly bg-secondary m-3 rounded" style="height:50px">
+      <div class="col-3">
+        {{event.eventtype}}   
+      </div>
+      <div class="col-6">
+        {{ event.newstitle }}      
+                             
+    
+      </div>
+      <div class="col-3">
+                        
+        {{ event.createddate | timesince }} by {{ event.createdby.username }}
+      </div>
+    </div>
+    {% endfor %}
+
+    
+      
+    </div>
+  </div>
+
+                                
+                                        
+                                     
+                                       
+                                                    
+                                       
+ 
+                              
+
+
+<style>
+  .img-small {
+    width: 300px; /* Adjust the width as needed */
+    height: 300px; /* Adjust the height as needed */
+    object-fit: cover; /* Maintain aspect ratio and cover container */
+  }
+
+</style>
+
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+{% load mathfilters %}
+
+{%  include 'partials/nav.html' %}
+
+
+    <div class="container text-white">
+        <img src="{{cloudmap}}" alt="">
+        <h1 class="container text-white">Weather for {{current.name}}</h1> 
+        {%for i in current.weather%}
+        <img src="https://openweathermap.org/img/wn/{{i.icon}}.png" alt="">
+        {{i.description}}
+        {% endfor %}
+        <br>
+        <h3 class="container text-white">Temperature: {{current.main.temp}} Degree Celcius</h3>
+        <h3 class="container text-white">Feels like: {{current.main.feels_like}} </h3>
+        <h3 class="container text-white">Humidty: {{current.main.humidity}} %</h3>
+        <h3 class="container text-white">Visibility : {{current.visibility|div:1000}} km</h3>
+        
+        <br>
+        <h3 class="container text-white">Wind Speed: {{current.wind.speed}} </h3>
+        <h3 class="container text-white">Wind Degree: {{current.wind.deg}} </h3>
+
+        
+        <h3 class="container text-white">Sunrise: {{sunrise}}</h3>
+        <h3 class="container text-white">Sunrise: {{sunset}}</h3>
+
+        {% for i in forecast %}
+        {{i}}
+        {% endfor %}
+       
+    
+        
+       
+       
+       
+    </div>
+    {% endblock %}
+

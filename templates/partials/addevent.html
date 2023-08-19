@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<!-- <script>
+  $(document).ready(function(){
+    $(function () { $('#ediform').offcanvas('show'); });
+  });
+</script> -->
+<form method="POST" class="m-1" id="informationForm" action="{% url 'feed' %}">
+  {% csrf_token %}
+          {{form.eventtype.label }} {% render_field form.eventtype class='form-select'%} <br>
+
+          <!-- node -->
+          <div id="node_fields" style="display: block;" class="m-1">
+            <h5 class="">Enter Node Details</h5>
+            {{ form.nodetitle.label }} {% render_field form.nodetitle class="form-control" placeholder="Enter Node Title" %} <br> 
+            {{form.showingraph.label }} {{form.showingraph}} <br>
+            {{form.nodecolor.label }}  {{form.nodecolor}} <br>
+            {{form.relatedevents.label}} 
+            {{form.relatedevents}}
+          </div>
+   
+          <!-- news -->
+          <div id="news_fields" style="display: none;" class="m-1">
+            <h5 class="">Add a News Article</h5>
+            {{form.newstitle.label}}{{form.newstitle}} <br>
+            {{form.newspublisher.label}} {{form.newspublisher}} <br>
+            {{form.newscategory.label}} {{form.newscategory}} <br>
+            {{form.newslink.label}} {{form.newslink}} <br>
+            {{form.image.label}} {{form.image}} <br>
+          </div>
+
+        <!-- EVENT -->
+        <div id="event_fields" style="display: none;" class="">
+          <h5 class="">Add Event Details</h5>
+          {{form.eventname.label}} {{form.eventname}} <br>
+          {{form.eventsponsor.label}} {{form.eventsponsor}} <br>
+          {{form.eventdate.label}} {{form.eventdate}} <br>
+          {{ form.eventdate.errors}}
+          {{form.eventlocation.label}} {{form.eventlocation}} <br>
+          {{form.eventlatitude.label}} {{form.eventlatitude}} <br>
+          {{form.eventlongitude.label}} {{form.eventlongitude}} <br>
+          {{form.showinmap.label}} {{form.showinmap}} <br>
+        </div>
+
+        <!-- information -->
+        <div id="information_fields" style="display: none;" class="mt-3">
+          <h5 class="">Add Information</h5>
+          {{form.infoname.label}} {{form.infoname}} <br>
+          {{form.infodescription.label}} {{form.infodescription}} <br>
+          {{form.infosource.label}} {{form.infosource}} <br>
+        </div>
+
+         <!-- report -->
+         <div id="report_fields" style="display: none;" class="mt-3">
+          <h5 class="">Add Report</h5>
+          {{form.reportnumber.label}} {{form.reportnumber}} <br>
+          {{form.reporttitle.label}} {{form.reporttitle}} <br>
+          {{form.reportdate.label}} {{form.reportdate}} <br>
+          {{form.reportdepartment.label}} {{form.reportdepartment}} <br>
+        </div>
+
+        
+        <!-- asd -->
+        <button type="submit" class="btn btn-dark" id="informationFormbtn">Add</button> 
+
+  </form>
+  </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

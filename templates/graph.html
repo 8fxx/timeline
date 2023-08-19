@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Network Graph</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'icons/favicon.png' %}">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <link rel="stylesheet" href="{% static 'styles/graph.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+</head>
+
+
+
+
+<body style="
+background-color: rgb(220, 220, 220);
+font-family: 'Roboto', sans-serif;
+">
+    {% include 'partials/nav.html' %}
+
+
+    <div id="network-graph"></div>
+  
+    <script src="{% static 'scripts/graph.js' %}">
+        // Your D3.js code to draw the network graph
+       
+    </script>
+</body>
+</html>
+

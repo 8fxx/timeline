@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+    
+<form method="POST" class="text-white">
+    {% csrf_token %}
+    <div class="container-fluid">
+        <div class="row text-center">
+          <div class="col">
+          </div>
+          <div class="col-6 text-center fs-5">
+            <h1 class="text-white m-5">Change User Password</h1>
+            {{form.as_p}}
+            <br>
+            <button type="submit" class="btn btn btn-dark">Submit</button>
+          </div>
+          <div class="col">
+            
+          </div>
+     
+
+        </div>
+       
+    </div>
+     
+    </form>
+
+    {% endblock %}

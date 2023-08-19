@@ -1,0 +1,17 @@
+  <form class="">
+    
+    {% if graphsearch %}
+    <input class="form-control m-1" type="search" placeholder="Search" aria-label="Search" name="q" id="search-input" 
+    style="
+    width: 400px;
+    ">
+    {% endif %}
+
+
+
+    {% if feedsearch %}
+  {% csrf_token %}
+    <input class="form-control m-1" type="text" placeholder="Search" aria-label="Search" name="searched" id="search-input"
+      style="width: 400px;" hx-post="{% url 'searchevent' %}" hx-trigger="keyup delay:500ms" hx-target="#feed-list">
+    {% endif %}
+  </form>

@@ -1,0 +1,23 @@
+#network-graph{
+    margin: 0px;
+    border: 0px;
+}
+
+
+.node {
+    fill: blue;
+    cursor: pointer;
+}
+.link {
+    stroke: rgb(87, 87, 87);
+    stroke-width: 1.5px;
+}
+.tooltip {
+    position: absolute;
+    pointer-events: none;
+    padding: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px;
+}
